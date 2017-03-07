@@ -1,24 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd.c                                        :+:      :+:    :+:   */
+/*   ft_lstrev.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vkannema <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/10 17:19:40 by vkannema          #+#    #+#             */
-/*   Updated: 2016/11/10 17:33:59 by vkannema         ###   ########.fr       */
+/*   Created: 2016/11/18 11:59:16 by vkannema          #+#    #+#             */
+/*   Updated: 2016/11/30 12:00:32 by vkannema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd(t_list **alst, t_list *new)
+void	ft_lstrev(t_list **begin_list)
 {
-	if (*alst)
+	t_list	*tmp_current;
+	t_list	*tmp_prev;
+	t_list	*tmp_next;
+
+	tmp_prev = NULL;
+	tmp_current = *begin_list;
+	while (tmp_current)
 	{
-		new->next = *alst;
-		*alst = new;
+		tmp_next = tmp_current->next;
+		tmp_current->next = tmp_prev;
+		tmp_prev = tmp_current;
+		tmp_current = tmp_next;
 	}
-	if (!(*alst))
-		*alst = new;
+	*begin_list = tmp_prev;
 }

@@ -6,7 +6,7 @@
 #    By: vkannema <vkannema@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/21 21:10:13 by vkannema          #+#    #+#              #
-#    Updated: 2017/03/03 19:01:34 by vkannema         ###   ########.fr        #
+#    Updated: 2017/01/19 13:55:26 by vkannema         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,6 @@ C_FILES = $(shell find $(C_DIR) -type f | grep "\.c")
 
 O_FILES = $(C_FILES:$(C_DIR)/%.c=$(O_DIR)/%.o)
 
-
 FLAGS = -Werror -Wextra -Wall
 
 all: $(NAME)
@@ -35,10 +34,12 @@ $(O_DIR)/%.o: $(C_DIR)/%.c
 	@gcc $(FLAGS) $(LINKS) -o $@ -c $<
 
 clean:
-	@rm -rf $(O_DIR)
+	@echo "Deleting Objects..."
+	rm -rf $(O_DIR)
 
 
 fclean: clean
+	@echo "Deleting libftprintf.a..."
 	@rm -f $(NAME)
 
 re : fclean all

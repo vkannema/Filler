@@ -1,35 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Filler.h                                           :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vkannema <vkannema@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/06 19:40:54 by vkannema          #+#    #+#             */
-/*   Updated: 2017/03/07 18:05:34 by vkannemacher     ###   ########.fr       */
+/*   Created: 2017/01/31 13:52:08 by vkannema          #+#    #+#             */
+/*   Updated: 2017/01/31 14:15:30 by vkannema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FILLER_H
-# define FILLER_H
-# include <libftprintf.h>
-# include <libft.h>
-typedef struct		s_map
+#include "libftprintf.h"
+
+int	main()
 {
-	char			*map;
-	int			size_x;
-	int			size_y;
-	char			**array;
-}				t_map;
-
-typedef struct s_piece
-{
-	int			size_x;
-	int			size_y;
-}				t_piece;
-
-t_map			*get_map();
-t_piece			*get_piece();
-void				get_env(t_map *map, t_piece *piece);
-
-#endif
+	ft_printf("{:purple}coucou cest moi");
+	ft_printf("coucou cest moi");
+	ft_printf("{:red}coucou cest moi");
+	return (0);
+}
