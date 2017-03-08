@@ -6,7 +6,7 @@
 /*   By: vkannema <vkannema@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/06 19:40:54 by vkannema          #+#    #+#             */
-/*   Updated: 2017/03/07 19:17:53 by vkannemacher     ###   ########.fr       */
+/*   Updated: 2017/03/08 14:51:39 by vkannema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,22 @@
 # include <libftprintf.h>
 # include <libft.h>
 
-typedef struct s_piece
+typedef struct	s_piece
 {
 	int			size_x;
 	int			size_y;
+	char		**coord;
 }				t_piece;
 
-typedef struct		s_map
+typedef struct	s_data
 {
-	char			*map;
 	int			size_x;
 	int			size_y;
-	char			**array;
-}				t_map;
+	char		**map;
+	int			player;
+	int			fd;
+}				t_data;
 
-t_map			*get_map();
-t_piece			*get_piece();
-void				get_env(t_map *map, t_piece *piece);
+void			get_env(t_data *data, t_piece *piece);
 
 #endif
