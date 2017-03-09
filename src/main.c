@@ -6,11 +6,11 @@
 /*   By: vkannema <vkannema@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/06 19:35:40 by vkannema          #+#    #+#             */
-/*   Updated: 2017/03/08 14:15:34 by vkannema         ###   ########.fr       */
+/*   Updated: 2017/03/09 10:23:17 by vkannema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <Filler.h>
+#include <filler.h>
 
 void	init_data(t_data *data, t_piece *piece)
 {
@@ -37,9 +37,19 @@ void	init_player(t_data *data)
 		i++;
 		data->player = ft_atoi(&line[i]);
 	}
+	if (data->player == 1)
+	{
+		data->form_me = "Oo";
+		data->form_en = "Xx";
+	}
+	else if (data->player == 2)
+	{
+		data->form_me = "Xx";
+		data->form_en = "Oo";
+	}
 }
 
-int	main(void)
+int		main(void)
 {
 	t_data	*data;
 	t_piece	*piece;
@@ -51,12 +61,12 @@ int	main(void)
 	init_data(data, piece);
 	data->fd = open("return", O_RDWR);
 	init_player(data);
-	while (1)
-	{
-		get_env(data, piece, fd);
-		
-	}
-	ft_printf("msx %d msy %d psx %d psy%d\n", data->size_x, data->size_y, piece->size_x, piece->size_y);
+	// while (1)
+	// {
+		get_env(data, piece);
+		ft_printf("%d\n", data->player);
+		algo(data, piece);
+	// }
 	close(fd);
 	return (0);
 }

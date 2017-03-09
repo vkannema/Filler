@@ -6,11 +6,11 @@
 /*   By: vkannema <vkannema@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/07 17:04:07 by vkannema          #+#    #+#             */
-/*   Updated: 2017/03/08 14:52:35 by vkannema         ###   ########.fr       */
+/*   Updated: 2017/03/09 10:27:50 by vkannema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Filler.h"
+#include "filler.h"
 
 void	get_piece_size(char *line, t_piece *piece)
 {
@@ -38,8 +38,7 @@ int		get_map(char *line, t_data *data)
 	while (y < data->size_y && data->size_y - 1)
 	{
 		get_next_line(0, &line);
-		data->map[y] = (char *)malloc(sizeof(char) * data->size_x + 1);
-		data->map[y] = ft_strcpy(data->map[y], line);
+		data->map[y] = ft_strdup((const char *)(&line[4]));
 		y++;
 	}
 	ft_strdel(&line);
